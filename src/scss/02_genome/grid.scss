@@ -1,0 +1,7 @@
+// Generate basic grid
+.row {
+    @include row(false, center, center);
+}
+
+@include col-x;
+

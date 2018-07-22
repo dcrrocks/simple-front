@@ -1,0 +1,26 @@
+//// STYLE
+// Fonts
+$base_font_size: 16px;
+$font-main: 'Open Sans', sans-serif;
+
+// Colors
+$white: white;
+$black: black;
+
+// Animations
+$fast_animation_spd: .2s;
+$default_animation_spd: .3s;
+$slow_animation_spd: .8s;
+
+//// LAYOUT
+// Grid
+$col_amount: 12;
+$gap: 1em;
+
+// BASELINE
+$bl_px: 10px;
+$bl: calculate-em(16px, $bl_px);
+
+// Responsiveness 
+$breakpoint: 1024px;
+$mobile: 568px;

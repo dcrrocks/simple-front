@@ -1,0 +1,566 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+a img {
+  border: none; }
+
+/* normalize based rules */
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active, a:hover {
+  outline: 0; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+hr {
+  height: 0;
+  box-sizing: content-box; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+pre {
+  white-space: pre-wrap; }
+
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+sub, sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+/**
+* 1. Correct `color` not being inherited in IE 8/9.
+* 2. Remove padding so people aren't caught out if they zero out fieldsets.
+*/
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+* HTML5
+*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/**
+* 1. Correct font family not being inherited in all browsers.
+* 2. Correct font size not being inherited in all browsers.
+* 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+*/
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%; }
+
+button, input {
+  line-height: normal; }
+
+button, select {
+  text-transform: none; }
+
+button,
+html input[type="button"], input[type="reset"], input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+.row {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  padding: 0 1em;
+  box-sizing: border-box; }
+
+.col-1 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 8.33333%;
+      flex-basis: 8.33333%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-2 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 16.66667%;
+      flex-basis: 16.66667%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-3 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-4 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 33.33333%;
+      flex-basis: 33.33333%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-5 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 41.66667%;
+      flex-basis: 41.66667%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-6 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-7 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 58.33333%;
+      flex-basis: 58.33333%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-8 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 66.66667%;
+      flex-basis: 66.66667%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-9 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-10 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 83.33333%;
+      flex-basis: 83.33333%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-11 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 91.66667%;
+      flex-basis: 91.66667%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+.col-12 {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: initial;
+      align-items: initial;
+  -ms-flex-pack: initial;
+      justify-content: initial;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 1em;
+  box-sizing: border-box; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  counter-reset: order;
+  counter-reset: caption; }
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 4em;
+  line-height: 1.20em;
+  color: black;
+  margin: 0 0 .5em 0; }
+
+h2 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 200;
+  font-size: 2em;
+  line-height: 1.25em;
+  margin: 0 0 1em 0; }
+  @media only screen and (min-width: 568px) {
+    h2 {
+      font-size: 2.25em; } }
+
+h3 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 2em;
+  letter-spacing: 3.2px;
+  color: black;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  display: inline-block;
+  padding: 0 0 .2em 0;
+  margin: 0 0 1em 0; }
+
+h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  font-size: 1.25em;
+  line-height: 2em;
+  color: black;
+  padding: 0px;
+  margin: 0px; }
+
+h5,
+.header_5 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  letter-spacing: 0.8px;
+  line-height: 2em;
+  color: black;
+  text-transform: uppercase;
+  margin: 10px 0 5px 0; }
+
+quote {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.25em;
+  line-height: 1.5em;
+  color: black;
+  display: inline-block;
+  margin: 0 0 1em 0; }
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: .9em;
+  line-height: 3;
+  color: black;
+  margin-bottom: 1em; }
+  p:last-of-type {
+    margin: 0; }
+  @media only screen and (min-width: 568px) {
+    p {
+      font-size: 16px; } }
+  @media only screen and (min-width: 568px) {
+    p {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 1.125em;
+      line-height: 2.22222em; } }
+  p.large {
+    font-size: 1.5em;
+    line-height: 1.75;
+    font-weight: 400; }
+    @media only screen and (min-width: 568px) {
+      p.large {
+        font-size: 1.8em; } }
+  p.alt-font {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300; }
+
+/* Helpers */
+.gray {
+  color: black; }
+
+.teal {
+  color: black; }
+
+.blue {
+  color: black; }
+
+.detail {
+  background-color: black;
+  padding: 60px 80px 60px 80px;
+  margin: 60px 0 60px 0; }
+
+.no-margin {
+  margin: 0; }
+
+a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  border-bottom: 1px solid black; }
+  a.no-decoration {
+    color: inherit;
+    border-bottom: none; }
+
+ul, ol {
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  padding: 0px;
+  margin: 0px; }
+
+ul, ol {
+  list-style-type: none; }
+
+ol {
+  counter-reset: order; }
+  ol li:before {
+    counter-increment: order;
+    content: counter(order) ".";
+    padding: 0 30px 0 0;
+    color: black; }
+
+li {
+  font-size: 16px;
+  line-height: 40px;
+  color: black; }
+
+ul.bullet li:before {
+  content: "-";
+  padding: 0 30px 0 0; }
+
+ul.caption li {
+  font-size: 16px;
+  line-height: 25px;
+  color: black; }
+
+ul.caption {
+  counter-reset: caption; }
+  ul.caption li {
+    position: relative;
+    margin-left: 3em; }
+  ul.caption li:before {
+    counter-increment: caption;
+    content: "0" counter(caption) ". ";
+    position: absolute;
+    left: -3em; }
+  ul.caption li:nth-child(n+10):before {
+    counter-increment: caption;
+    content: counter(caption) ". "; }

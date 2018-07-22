@@ -1,0 +1,50 @@
+//*
+// BASE FONT DEFINITOIN (body copy)
+//*
+
+//*
+// FONT FAMILY VARIATIONS
+//*
+// $brown_regular: (font_family: 'BrownPro', font_weight: normal, font_style: normal);
+
+// ------------------------------------------------------------------HEADER-1-//
+// $header_1: (
+//   size_px: 110, line_height_baseline: 10, margin_bottom_baseline: 0,
+//   color: black, font_antialiased: true
+// );
+// $header_1: map-merge($header_1, $brown_regular);
+
+
+// ------------------------------------------------------------------HEADER-2-//
+// $header_2: (
+//   size_px: 34, line_height_baseline: 4, margin_bottom_baseline: 4,
+//   color: black, font_antialiased: false,
+//   breakpoints: (
+//     ($small 50 5.4)
+//   )
+// );
+// $header_2: map-merge($header_2, $brown_regular);
+
+
+// ------------------------------------------------------------------PARA-//
+// $para: (
+//   size_px: 20, line_height_baseline: 2.6, margin_bottom_baseline: 0,
+//   color: black, font_antialiased: true
+// );
+// $para: map-merge($para, $brown_regular);
+
+
+
+//*
+// GENERATE STYLES AND PLACEHOLDERS
+//*
+// $my_list: (header_1: $header_1, header_2: $header_2, para: $para);
+
+// @each $font, $map in $my_list {
+
+//   .#{$font},
+//   %#{$font} {
+//     @include generate_font_styles($map);
+//   }
+
+// }

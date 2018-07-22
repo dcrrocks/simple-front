@@ -1,0 +1,174 @@
+
+//************************** GRID FUNCTIONS **************************//
+
+@mixin row($no-gutter: false, $v-align: top, $h-align: left) {
+  width: 100%;
+  display: flex;
+  align-items: $v-align;
+  justify-content: $h-align;
+  flex-flow: row wrap;
+  padding: if($no-gutter, 0, 0 $gap);
+  box-sizing: border-box;
+}
+
+@mixin col($size, $flex: false, $v-align: false, $h-align: false) {
+  @if $flex {
+    flex-shrink: 0;
+    flex-grow: 0;
+    flex-basis: if($size, 100% / ($col_amount / $size), auto )
+  } @else {
+    width: 100% * ( $col_amount / $size );
+  }
+  display: if($flex, flex, block);
+  align-items: if($v-align, $v-align, initial);
+  justify-content: if($h-align, $h-align, initial);
+  flex-direction: column;
+  padding: $gap;
+  box-sizing: border-box;
+}
+
+@mixin col-x {
+  @for $i from 1 through $col_amount {
+    .col-#{$i} {
+      @include col($i, true);
+    }
+  }
+}
+
+
+
+@mixin columns($amount, $no_gap: false, $f: left) {
+  float: $f;
+  @if $no_gap {
+    width: $col_width * nth($amount, 1);
+    margin-left: 0;
+  }
+  @else {
+    width: calc((#{$col_width} * #{nth($amount, 1)}) - #{$gutter_width});
+    margin-left: $gutter_width;
+  }
+  // &:first-child {
+  //   margin-left: 0;
+  // }
+  @if length($amount)>1 {
+    @if nth($amount, 2)==alpha {
+      margin-left: 0;
+    }
+    @else if nth($amount, 2)==omega {
+      float: right;
+    }
+    @else {
+      //  Raise a warning
+    }
+  }
+  @if nth($amount, 1)>$col_amount {
+    // Raise a warning
+  }
+}
+
+// @mixin col-x {
+//   @for $i from 1 through $col_amount {
+//     .col-#{$i} {
+//       @include columns($i);
+
+//       &-nogap {
+//         @include columns($i, true);
+//       }
+//     }
+//   }
+// }
+
+@mixin position($t: 50%, $r: auto, $b: auto, $l: 50%, $p: absolute, $c: true) {
+  position: $p;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+  @if $c=='v' {
+    transform: translate3d(0, -50%, 0);
+  }
+  @else if $c=='h' {
+    transform: translate3d(-50%, 0, 0);
+  }
+  @else if $c==true {
+    transform: translate3d(-50%, -50%, 0);
+  }
+  @else {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+//*
+// SPAN COLUMNS
+// Set an element to span X columns.  The element should be a child of the pagee wrapper.
+//*
+@mixin span-columns($amount){
+  float: left;
+  width: ($col_width * nth($amount, 1)) - ($gutter_width * (nth($amount, 1) - 1)) * 1%;
+  margin-left: $gutter_width * 1%;
+
+  &:first-child { margin-left: 0; }
+
+  @if length($amount) > 1 {
+
+    @if nth($amount, 2) == alpha {
+      margin-left: 0;
+    } @else if nth($amount, 2) == omega {
+      float: right;
+    } @else {
+      //  Raise a warning
+    }
+  }
+  @if nth($amount, 1) > $col_amount {
+    // Raise a warning
+  }
+}
+
+//*
+// SPAN COLUMNS WITHIN
+// If your container is already spanning X columns of the grid, you must calculate the child widths based on the parent.
+// You can set child width using this mixin, ensuring you tell the mixin how many columns the parent occupies.
+//*
+@mixin span-columns-within($amount, $within: $col_amount){
+
+  $parent_width_percentage: ($col_width * $within) + ($gutter_width * ($within - 1));
+  $parent_width_px: $max_width * ($parent_width_percentage / 100);
+  $col_width_within: ($col_width_px / $parent_width_px) * 100;
+  $gutter_width_within: ($gutter_width_px / $parent_width_px) * 100;;
+
+  float: left;
+  width: ($col_width_within * $amount) + ($gutter_width_within * ($amount - 1)) * 1%;
+  margin-left: $gutter_width_within * 1%;
+
+  &:first-child { margin-left: 0; }
+}
+
+@mixin span-full-columns($amount) {
+  float: left;
+  width: ($col_width * nth($amount, 1)) + ($gutter_width * (nth($amount, 1)));
+}
+
+@mixin reset-columns {
+  float: none; width: auto; margin-left: 0;
+}
+
+@function columns($amount) {
+  @return ($col_width * nth($amount, 1)) + ($gutter_width * (nth($amount, 1) - 1)) * 1%;
+}
+
+@function columns-within($amount, $within: $col_amount) {
+  $parent_width_percentage: ($col_width * $within) + ($gutter_width * ($within - 1));
+  $parent_width_px: $max_width * ($parent_width_percentage / 100);
+  $col_width_within: ($col_width_px / $parent_width_px) * 100;
+  $gutter_width_within: ($gutter_width_px / $parent_width_px) * 100;;
+
+  @return ($col_width_within * $amount) + ($gutter_width_within * ($amount - 1)) * 1%;
+}
+
+@function inner-gutter() {
+  @return $gutter_width * 1%
+}
+
+@mixin nth-alpha(){
+
+}
